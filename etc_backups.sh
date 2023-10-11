@@ -18,7 +18,7 @@ sudo find /etc -type f -exec md5sum {} \; > "$BACKUP_DIR/etc_sums_$(date +%F_%H-
 
 # Create a compressed backup of the /etc directory using gzip
 
-sudo tar cfz "$BACKUP_DIR/etc_backup_$(date +%F_%H-%M-%S).tar.gz" /etc
+sudo tar cfz "$BACKUP_DIR/etc_backup_$(date +%F_%H-%M-%S).tar.gz" /etc 2>/dev/null
 
 
 
