@@ -4,6 +4,8 @@
 
 # Directory for the backups
 
+mkdir "$HOME/secure_backups"
+
 BACKUP_DIR=~/secure_backups
 
 
