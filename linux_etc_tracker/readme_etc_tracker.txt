@@ -6,7 +6,7 @@ echo "$(date +"%Y-%m-%d %H:%M:%S")" > $HOME/secure_backups/report.txt
 echo "No differences have been found." >> $HOME/secure_backups/report.txt 
 This script as configured will generate 7 reports, and then start deleting the older ones, in the $HOME/secure_backups/old directory.
 
-It is recommended that you configure the permissions of secure_backups properly; use chown root:root, and chmod 600. 
+It is recommended that you configure the permissions of secure_backups properly; use sudo chmod 700. 
 I have included the scripts that were the building blocks for the final script as well, if you would like to separate the steps, or see the process more clearly. 
 These are in a more "raw" form, and do not have the file cleanup functionality, but in some ways that might be helpful, as you can track the generation of the files the script uses to create the final report. 
 
