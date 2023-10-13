@@ -16,7 +16,19 @@ DIFF_RESULTS="$HOME/secure_backups/analysis.txt"  # Name for the diff results fi
 
 awk '/^Changed files:/,/^$/' "$REPORT_FILE" | sed -e '1d' -e '$d' | sed 's/^\///' > tmp_changed_files.txt
 
+if ! [ -s tmp_changed_files.txt ]; then
 
+    rm tmp_changed_files.txt
+
+    sudo rm "$HOME/secure_backups/old/etc_backup1.tar.gz"
+
+    rm "$HOME/secure_backups/old/etc_sums1.txt"
+
+    cp "$HOME/secure_backups/report.txt" "$HOME/secure_backups/old/report_$(date +%F_%H-%M).txt"
+
+    exit 0 #Exit gracefully here if there are no changed files.
+
+fi
 
 # Extract these files from the archive to a temporary directory
 
